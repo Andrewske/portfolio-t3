@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$dark: #221e1c;
+$darker: #191414;
+$white: #f7f0f0;
+
+body {
+  color: $white;
+}
+
+main {
+  /* background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%); */
+
+  background-color: #221e1c;
+  padding-left: 200px;
+}
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  @extend .flex-col-center;
+  width: 200px;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: $darker;
+  display: flex;
+  gap: 1rem;
+
+  .sidebar-img {
+    @extend .flex-col-center;
+    object-fit: cover;
+    overflow: hidden;
+    gap: 0.5rem;
+    margin: 1rem;
+  }
+
+  .sidebar-links {
+    @extend .flex-col-center;
+    justify-content: flex-start !important;
+    width: 100%;
+    flex-grow: 1;
+
+    .sidebar-link {
+      border-bottom: 1px solid $dark;
+      font-size: 1.25rem;
+      padding: 0.5rem;
+      width: 100%;
+      text-align: center;
+      transition: all 0.1s ease-in-out;
+
+      &:first-child {
+        border-top: 1px solid $dark;
+      }
+
+      &:hover {
+        background-color: $dark;
+      }
+    }
+  }
+}
