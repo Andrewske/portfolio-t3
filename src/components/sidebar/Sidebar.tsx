@@ -22,6 +22,7 @@ const Sidebar = () => {
         <Link className="sidebar-link" href="#contact">
           Contact
         </Link>
+        <span className="external-profile-links"></span>
       </span>
     </div>
   );
