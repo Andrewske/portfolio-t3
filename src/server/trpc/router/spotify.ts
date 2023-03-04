@@ -11,10 +11,8 @@ export const spotifyRouter = router({
         "Content-Type": "application/json",
         Authorization: "Bearer " + user?.access_token ?? "",
       },
-    });
+    }).then((res) => res.json());
 
-    console.log(data?.body);
-
-    return { text: "hello" };
+    return data;
   }),
 });

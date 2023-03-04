@@ -3,15 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Sidebar from "../components/sidebar/Sidebar";
+import SpotifyTopArtists from "../components/spotify/SpotifyTopArtists";
 
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-
-  const spotify = trpc.spotify.topArtists.useQuery();
-
-  console.log(!spotify.isLoading && spotify?.data);
+  const { data: sessionData } = useSession();
 
   return (
     <>
@@ -32,6 +29,8 @@ const Home: NextPage = () => {
           <div className="flex flex-col items-center gap-2">
             <AuthShowcase />
           </div>
+
+          {sessionData && <SpotifyTopArtists />}
         </div>
       </main>
     </>
