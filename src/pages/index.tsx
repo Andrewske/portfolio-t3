@@ -10,6 +10,8 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   const { data: sessionData } = useSession();
 
+  console.log(sessionData);
+
   return (
     <>
       <Head>
@@ -30,7 +32,7 @@ const Home: NextPage = () => {
             <AuthShowcase />
           </div>
 
-          {sessionData && <SpotifyTopArtists />}
+          {/* {sessionData && <SpotifyTopArtists />} */}
         </div>
       </main>
     </>

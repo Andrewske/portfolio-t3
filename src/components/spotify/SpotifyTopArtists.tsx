@@ -1,14 +1,18 @@
 import { trpc } from "../../utils/trpc";
 
 const SpotifyTopArtists = () => {
-  const {
-    data: { items },
-  } = trpc.spotify.topArtists.useQuery();
+  const { data, isLoading } = trpc.spotify.topArtists.useQuery();
+
+  if (isLoading) {
+    return;
+  } else {
+    console.log(data);
+  }
 
   return (
     <div>
-      {items &&
-        items.map((artist: { name: string; id: string }) => (
+      {data &&
+        data?.items.map((artist: { name: string; id: string }) => (
           <p key={artist.id}>{artist.name}</p>
         ))}
     </div>
