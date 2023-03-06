@@ -28,11 +28,11 @@ const Home: NextPage = () => {
           <h2 className="text-2xl font-extrabold tracking-tight sm:text-[2rem]">
             Data Analyst & Web Developer
           </h2>
-          <div className="flex flex-col items-center gap-2">
+          {/* <div className="flex flex-col items-center gap-2">
             <AuthShowcase />
-          </div>
+          </div> */}
 
-          {sessionData && <SpotifyTopArtists />}
+          <SpotifyTopArtists />
         </div>
       </main>
     </>

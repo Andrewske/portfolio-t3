@@ -1,4 +1,7 @@
-import NextAuth, { type NextAuthOptions } from "next-auth";
+import NextAuth, {
+  type NextAuthOptions,
+  type SpotifyTokenType,
+} from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import SpotifyProvider from "next-auth/providers/spotify";
 // Prisma adapter for NextAuth, optional and can be removed
@@ -23,13 +26,6 @@ const scopes = [
   "user-read-recently-played",
   "user-library-read",
 ];
-
-type SpotifyTokenType = {
-  access_token?: string;
-  expires_in?: number;
-  token_type?: string;
-  scope?: string;
-};
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session

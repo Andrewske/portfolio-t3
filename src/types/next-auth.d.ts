@@ -15,7 +15,8 @@ declare module "next-auth" {
   interface SpotifyTokenType {
     access_token?: string;
     refresh_token?: string;
-    exprires_in?: number;
+    expires_in?: number;
+    scope?: string;
   }
 }
 

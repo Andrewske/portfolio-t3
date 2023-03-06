@@ -23,6 +23,7 @@ export const serverSchema = z.object({
   DISCORD_CLIENT_SECRET: z.string(),
   SPOTIFY_CLIENT_ID: z.string(),
   SPOTIFY_CLIENT_SECRET: z.string(),
+  KEVIN_USER_ID: z.string(),
 });
 
 /**
