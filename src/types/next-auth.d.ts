@@ -19,11 +19,11 @@ declare module "next-auth" {
   }
 }
 
-// declare module "next-auth/jwt" {
-//   interface JWT {
-//     access_token?: Account.access_token;
-//     expires_at?: Account.expiresAt;
-//     refresh_token?: Account.refresh_token;
-//     error?: "RefreshAccessTokenError";
-//   }
-// }
+declare module "next-auth/jwt" {
+  interface JWT {
+    access_token?: Account.access_token;
+    expires_at?: Account.expiresAt;
+    refresh_token?: Account.refresh_token;
+    error?: "RefreshAccessTokenError";
+  }
+}

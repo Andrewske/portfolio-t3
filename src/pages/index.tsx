@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             <AuthShowcase />
           </div>
 
-          {/* {sessionData && <SpotifyTopArtists />} */}
+          {sessionData && <SpotifyTopArtists />}
         </div>
       </main>
     </>

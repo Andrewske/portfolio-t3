@@ -14,7 +14,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["ibb.co"],
+    domains: ["ibb.co", "i.scdn.co"],
   },
 };
 export default config;
