@@ -1,4 +1,5 @@
 import { router, protectedProcedure, publicProcedure } from "../trpc";
+import { z } from "zod";
 import { getAccessToken } from "../../../utils/spotify";
 
 type ImageType = {
@@ -39,7 +40,6 @@ export const spotifyRouter = router({
         Authorization: "Bearer " + accessToken,
       },
     }).then((res) => {
-      console.log("called spotify");
       return res.json();
     });
 
@@ -56,4 +56,33 @@ export const spotifyRouter = router({
 
     return null;
   }),
+  savedTracks: publicProcedure
+    .input(
+      z
+        .object({ limit: z.number().nullish(), offset: z.number().nullish() })
+        .nullish()
+    )
+    .query(async ({ input }) => {
+      const accessToken = await getAccessToken(process.env.KEVIN_USER_ID ?? "");
+      const limit = input?.limit ?? 50;
+      const offset = input?.offset ?? 0;
+
+      const params = new URLSearchParams({
+        limit: limit.toString(),
+        offset: offset.toString(),
+      });
+      console.log(params);
+
+      const data = await fetch(
+        "https://api.spotify.com/v1/me/tracks?" + params,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + accessToken,
+          },
+        }
+      ).then((res) => res.json());
+
+      return data;
+    }),
 });

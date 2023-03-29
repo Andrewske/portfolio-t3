@@ -59,6 +59,7 @@ model User {
   image         String?   @db.Text
   accounts      Account[]
   sessions      Session[]
+  savedTracks   SpotifySavedTrack[]
 }
 
 model VerificationToken {
@@ -67,4 +68,44 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+
+model SpotifySavedTrack {
+  trackId String @unique
+  userId  String
+  added   DateTime
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  track SpotifyTrack @relation(fields: [trackId], references: [id])
+ 
+  @@unique([userId, trackId])
+  @@index([userId])
+}
+
+model SpotifyArtistTrack {
+  artistId String @unique
+  trackId String
+
+  artist SpotifyArtist @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  track SpotifyTrack @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@unique([artistId, trackId])
+  @@index([artistId])
+  @@index([trackId])
+}
+
+model SpotifyArtist {
+  id String @unique
+  name String
+  imgUrl String?
+  
+  tracks SpotifyArtistTrack[]
+}
+
+model SpotifyTrack {
+  id String @unique
+  albumId String
+
+  saved SpotifySavedTrack[]
+  artists SpotifyArtistTrack[]
 }

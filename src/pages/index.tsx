@@ -4,6 +4,7 @@ import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Sidebar from "../components/sidebar/Sidebar";
 import SpotifyTopArtists from "../components/spotify/SpotifyTopArtists";
+import SpotifySavedTracks from "../components/spotify/SpotifySavedTracks";
 
 import { trpc } from "../utils/trpc";
 
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
           {/* <div className="flex flex-col items-center gap-2">
             <AuthShowcase />
           </div> */}
+          <SpotifySavedTracks />
 
           <SpotifyTopArtists />
         </div>
