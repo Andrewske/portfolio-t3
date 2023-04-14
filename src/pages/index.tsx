@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -10,8 +11,12 @@ import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
   const { data: sessionData } = useSession();
+  const [isOpen, setIsOpen] = useState(false);
 
-  console.log(sessionData);
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
