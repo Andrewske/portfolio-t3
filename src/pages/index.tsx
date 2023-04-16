@@ -6,7 +6,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Sidebar from "../components/sidebar/Sidebar";
 import SpotifyTopArtists from "../components/spotify/SpotifyTopArtists";
 import SpotifySavedTracks from "../components/spotify/SpotifySavedTracks";
-
+import Section from "../components/Section";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
@@ -26,10 +26,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Sidebar /> */}
-      <main className="flex min-h-screen flex-col">
+      <main>
         <div className="banner">
           <h1 className="hover-color">HI I'M</h1>
-          <h1 className="hover-color">KEVIN ANDREWS</h1>
+
+          <Section />
           <h2 className="hover-color">DATA ANALYST</h2>
           <h2 className="hover-color">WEB DEVELOPER</h2>
           <h3 className="hover-color">EXPERIENCE</h3>
