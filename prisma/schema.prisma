@@ -32,7 +32,7 @@ model Account {
   access_token      String? @db.Text
   expires_at        Int?
   token_type        String?
-  scope             String?
+  scope             String? @db.Text
   id_token          String? @db.Text
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -53,23 +53,28 @@ model Session {
 
 model User {
   id            String    @id @default(cuid())
-  name          String?
+  name          String?   @db.Text
   email         String?   @unique
   emailVerified DateTime?
-  image         String?
+  image         String?   @db.Text
   accounts      Account[]
   sessions      Session[]
+<<<<<<< HEAD
   tasks         Task[]
+=======
+  savedTracks   SpotifySavedTrack[]
+>>>>>>> f0ec4b8df50f17a6c2f5e83ce99d53f0b232f814
 }
 
 model VerificationToken {
   identifier String
-  token      String   @unique
+  token      String @unique
   expires    DateTime
 
   @@unique([identifier, token])
 }
 
+<<<<<<< HEAD
 model Task {
   id         String   @id @default(cuid()) 
   parentId   String?
@@ -80,3 +85,44 @@ model Task {
   @@index([userId])
 }
 
+=======
+
+model SpotifySavedTrack {
+  trackId String @unique
+  userId  String
+  added   DateTime
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  track SpotifyTrack @relation(fields: [trackId], references: [id])
+ 
+  @@unique([userId, trackId])
+  @@index([userId])
+}
+
+model SpotifyArtistTrack {
+  artistId String @unique
+  trackId String
+
+  artist SpotifyArtist @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  track SpotifyTrack @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@unique([artistId, trackId])
+  @@index([artistId])
+  @@index([trackId])
+}
+
+model SpotifyArtist {
+  id String @unique
+  name String
+  imgUrl String?
+  
+  tracks SpotifyArtistTrack[]
+}
+
+model SpotifyTrack {
+  id String @unique
+  albumId String
+
+  saved SpotifySavedTrack[]
+  artists SpotifyArtistTrack[]
+}
+>>>>>>> f0ec4b8df50f17a6c2f5e83ce99d53f0b232f814

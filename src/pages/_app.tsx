@@ -4,7 +4,14 @@ import { SessionProvider } from "next-auth/react";
 
 import { trpc } from "../utils/trpc";
 
-import "../styles/globals.css";
+import { Roboto } from "@next/font/google";
+
+import "../styles/globals.scss";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,7 +19,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <style jsx global>{`
+        html {
+          font-family: ${roboto.style.fontFamily};
+        }
+      `}</style>
+      <Component {...pageProps} className={roboto.className} />
     </SessionProvider>
   );
 };

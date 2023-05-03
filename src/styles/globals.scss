@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$dark: #221e1c;
+$darker: #191414;
+$white: #f7f0f0;
+$green: #1db954;
+$green-5: rgba(30, 215, 96, 0.5);
+body {
+  color: $white;
+}
+
+main {
+  /* background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%); */
+  overflow-y: hidden;
+  background-color: #221e1c;
+  position: relative;
+}
+
+.hover-color {
+  cursor: pointer;
+  transition: transform 0.25s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    color: $green;
+  }
+}
+
+h1 {
+  font-size: max(4rem, 6vw);
+}
+h2 {
+  font-size: max(2rem, 4vw);
+}
+h3 {
+  font-size: max(1rem, 2vw);
+}
+
+.banner {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15vw;
+
+  border: 1px solid $green-5;
+  position: relative;
+}
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  @extend .flex-col-center;
+  width: 200px;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: $darker;
+  display: flex;
+  gap: 1rem;
+
+  .sidebar-img {
+    @extend .flex-col-center;
+    object-fit: cover;
+    overflow: hidden;
+    gap: 0.5rem;
+    margin: 1rem;
+  }
+
+  .sidebar-links {
+    @extend .flex-col-center;
+    justify-content: flex-start !important;
+    width: 100%;
+    flex-grow: 1;
+
+    .sidebar-link {
+      border-bottom: 1px solid $dark;
+      font-size: 1.25rem;
+      padding: 0.5rem;
+      width: 100%;
+      text-align: center;
+      transition: all 0.1s ease-in-out;
+
+      &:first-child {
+        border-top: 1px solid $dark;
+      }
+
+      &:hover {
+        background-color: $dark;
+      }
+    }
+  }
+}
+
+.spotify-top-artists {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .artist {
+    width: 10rem;
+    height: 8rem;
+    position: relative;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: all 0.1s ease-in-out;
+    box-shadow: $green-5 0px 2.5px 5px 0px;
+
+    &:hover {
+      font-size: calc(1.5rem * 0.9);
+      transform: scale(1.1);
+    }
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+
+    p {
+      z-index: 2;
+      //font-size: 1.5rem;
+      mix-blend-mode: difference;
+    }
+  }
+}
