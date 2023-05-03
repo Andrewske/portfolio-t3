@@ -1,25 +1,24 @@
-import { useState, useRef } from "react";
-import { CSSTransition } from "react-transition-group";
+import type { PropsWithChildren } from "react";
 
-const Section = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const nodeRef = useRef(null);
+type SectionProps = {
+  date: string;
+  dateLeft: boolean;
+};
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setIsOpen(!isOpen);
-  };
-
+const Section = ({
+  date,
+  dateLeft,
+  children,
+}: PropsWithChildren<SectionProps>) => {
   return (
-    <section>
-      <button onClick={handleClick}>
-        <h1 className="hover-color">KEVIN ANDREWS</h1>
-      </button>
-      {isOpen && (
-        <div ref={nodeRef}>
-          <p>Here is some about information</p>
-        </div>
-      )}
+    <section className="timeline-section">
+      <div className="left">
+        {dateLeft ? <h3 className={"date"}>{date}</h3> : <div>{children}</div>}
+      </div>
+
+      <div className="right">
+        {!dateLeft ? <h3 className={"date"}>{date}</h3> : <div>{children}</div>}
+      </div>
     </section>
   );
 };

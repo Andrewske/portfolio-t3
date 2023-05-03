@@ -59,6 +59,20 @@ h3 {
   align-items: center;
 }
 
+.timeline-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .date {
+    color: $green;
+  }
+
+  .left {
+  }
+}
+
 .sidebar {
   @extend .flex-col-center;
   width: 200px;

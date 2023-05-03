@@ -7,6 +7,7 @@ import Sidebar from "../components/sidebar/Sidebar";
 import SpotifyTopArtists from "../components/spotify/SpotifyTopArtists";
 import SpotifySavedTracks from "../components/spotify/SpotifySavedTracks";
 import Section from "../components/Section";
+import School from "../components/School";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
@@ -42,6 +43,12 @@ const Home: NextPage = () => {
 
           <SpotifyTopArtists /> */}
         </div>
+        <Section date="2016" dateLeft={true}>
+          <School />
+        </Section>
+        <Section date="2017" dateLeft={false}>
+          <School />
+        </Section>
       </main>
     </>
   );
