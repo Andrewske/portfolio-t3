@@ -1,21 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
 
 $dark: #221e1c;
 $darker: #191414;
 $white: #f7f0f0;
 $green: #1db954;
 $green-5: rgba(30, 215, 96, 0.5);
+
+// Remove standard styling
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+}
+
+html {
+  scroll-snap-type: y proximity;
+}
+
 body {
   color: $white;
+  overflow-x: hidden;
+  background-color: #221e1c;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 0;
 }
 
 main {
-  /* background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%); */
-  overflow-y: hidden;
-  background-color: #221e1c;
-  position: relative;
 }
 
 .hover-color {
@@ -30,18 +51,39 @@ main {
 
 h1 {
   font-size: max(4rem, 6vw);
+  margin: 0;
 }
 h2 {
   font-size: max(2rem, 4vw);
+  margin: 0;
 }
 h3 {
   font-size: max(1rem, 2vw);
+  margin: 0;
+}
+
+section {
+  &.container {
+    scroll-snap-align: start;
+    max-width: 100%;
+    min-height: calc(100vh - 0.2rem);
+    margin-top: 1rem;
+    margin: 0.25rem;
+    border-radius: 0.5rem;
+    @extend .flex-col-center;
+  }
+
+  &.blue {
+    border: 1px solid blue;
+  }
+  &.green {
+    border: 1px solid $green-5;
+  }
 }
 
 .banner {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  max-width: 100%;
+  max-height: 100vh;
 
   display: flex;
   flex-direction: column;

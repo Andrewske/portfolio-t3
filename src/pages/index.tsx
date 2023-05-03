@@ -7,6 +7,8 @@ import Sidebar from "../components/sidebar/Sidebar";
 import SpotifyTopArtists from "../components/spotify/SpotifyTopArtists";
 import SpotifySavedTracks from "../components/spotify/SpotifySavedTracks";
 import Section from "../components/Section";
+
+import About from "../components/sections/About";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
@@ -27,22 +29,22 @@ const Home: NextPage = () => {
       </Head>
       {/* <Sidebar /> */}
       <main>
-        <div className="banner">
+        <section id="banner" className="banner green container">
           <h1 className="hover-color">HI I'M</h1>
-
-          <Section />
+          <h1 className="hover-color">Kevin Andrews</h1>
           <h2 className="hover-color">DATA ANALYST</h2>
           <h2 className="hover-color">WEB DEVELOPER</h2>
           <h3 className="hover-color">EXPERIENCE</h3>
           <h3 className="hover-color">EDUCATION</h3>
-          {/* <div className="flex flex-col items-center gap-2">
+        </section>
+        {/* <div className="flex flex-col items-center gap-2">
             <AuthShowcase />
           </div> */}
-          {/* <SpotifySavedTracks />
+        {/* <SpotifySavedTracks />
 
           <SpotifyTopArtists /> */}
-        </div>
       </main>
+      <About />
     </>
   );
 };
