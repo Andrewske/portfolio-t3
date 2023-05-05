@@ -8,6 +8,8 @@ $white: #f7f0f0;
 $green: #1db954;
 $green-5: rgba(30, 215, 96, 0.5);
 
+$border-radius: 0.5rem;
+
 // Remove standard styling
 button,
 input[type="submit"],
@@ -20,8 +22,8 @@ input[type="reset"] {
   outline: inherit;
 }
 
-html {
-  scroll-snap-type: y proximity;
+main {
+  width: 100vw;
 }
 
 body {
@@ -36,9 +38,6 @@ body {
   margin: 0;
 }
 
-main {
-}
-
 .hover-color {
   cursor: pointer;
   transition: transform 0.25s ease-in-out;
@@ -47,6 +46,11 @@ main {
     transform: scale(1.05);
     color: $green;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 h1 {
@@ -64,34 +68,20 @@ h3 {
 
 section {
   &.container {
-    scroll-snap-align: start;
-    max-width: 100%;
     min-height: calc(100vh - 0.2rem);
     margin-top: 1rem;
-    margin: 0.25rem;
     border-radius: 0.5rem;
-    @extend .flex-col-center;
-  }
-
-  &.blue {
-    border: 1px solid blue;
-  }
-  &.green {
-    border: 1px solid $green-5;
+    padding: 2rem;
   }
 }
 
 .banner {
-  max-width: 100%;
+  width: calc(min(65vw, 100%));
   max-height: 100vh;
-
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 15vw;
-
-  border: 1px solid $green-5;
-  position: relative;
 }
 
 .flex-col-center {
@@ -99,6 +89,13 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.code-image {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
 .timeline-section {
@@ -113,6 +110,29 @@ section {
 
   .left {
   }
+}
+
+.about {
+  @extend .flex-col-center;
+  max-width: calc(max(65vw, 350px));
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+}
+.box {
+  flex: 1 1 25%;
+  max-height: 350px;
+  background: white;
+  color: $darker;
+  border-radius: $border-radius;
+  margin: 1rem;
+  padding: 2rem;
+  @extend .flex-col-center;
 }
 
 .sidebar {

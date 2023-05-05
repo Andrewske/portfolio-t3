@@ -13,11 +13,18 @@ import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
   const { data: sessionData } = useSession();
-  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    // first prevent the default behavior
     e.preventDefault();
-    setIsOpen(!isOpen);
+    // get the href and remove everything before the hash (#)
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    // get the element by id and use scrollIntoView
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -29,13 +36,16 @@ const Home: NextPage = () => {
       </Head>
       {/* <Sidebar /> */}
       <main>
-        <section id="banner" className="banner green container">
-          <h1 className="hover-color">HI I'M</h1>
-          <h1 className="hover-color">Kevin Andrews</h1>
-          <h2 className="hover-color">DATA ANALYST</h2>
+        <section id="banner" className="banner container">
+          <Link href="#about" onClick={handleScroll}>
+            <h1 className="hover-color">
+              Hi I'm <br />
+              Kevin Andrews
+            </h1>
+          </Link>
           <h2 className="hover-color">WEB DEVELOPER</h2>
-          <h3 className="hover-color">EXPERIENCE</h3>
-          <h3 className="hover-color">EDUCATION</h3>
+          <h2 className="hover-color">DATA ANALYST</h2>
+          <h2 className="hover-color">CONTACT</h2>
         </section>
         {/* <div className="flex flex-col items-center gap-2">
             <AuthShowcase />
