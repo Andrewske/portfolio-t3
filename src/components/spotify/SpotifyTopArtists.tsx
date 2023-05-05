@@ -1,7 +1,7 @@
 import { trpc } from "../../utils/trpc";
-import { Component } from "react";
+// import { Component } from "react";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 
 const SpotifyTopArtists = () => {
   const { data, isLoading } = trpc.spotify.topArtists.useQuery();
