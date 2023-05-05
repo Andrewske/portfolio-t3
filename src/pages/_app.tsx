@@ -1,4 +1,4 @@
-import { type AppType } from "next/app";
+import { type AppType, AppProps } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 
@@ -13,10 +13,10 @@ const roboto = Roboto({
   weight: ["400"],
 });
 
-const MyApp = ({
+const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
-}: AppType<{ session: Session | null }>) => {
+}: AppProps) => {
   return (
     <SessionProvider session={session}>
       <style jsx global>{`
