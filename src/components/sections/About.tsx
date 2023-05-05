@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import universityIcon from "/public/images/icons8-university-50.png";
+import bonzIcon from "/public/images/bonz_green_square@2x.png";
+
+import Indent from "../Indent";
 
 interface TextColorType {
   text: "string";
@@ -10,6 +13,30 @@ interface TextColorType {
 const About = () => {
   const textColor = (text: string, color: string) => {
     return <span className={`${color}`}>{text}</span>;
+  };
+
+  const workedAt = (company: string, jobTitle: string) => {
+    if (company === "Bonanza") {
+      switch (jobTitle) {
+        case "Data Analyst":
+          return {
+            startDate: "2019-07-01",
+            endDate: null,
+            duties: [
+              "Author MySQL queries to coordinate acquisition of data",
+              "Use Excel/Python to clean, visualize, and analyze large datasets",
+              "Use Python to create visualizations and conduct analysis",
+              "Identify patterns, use insights to educate and advise stakeholders ",
+              "Create reports to present data, identify issues, and develop new processes",
+            ],
+          };
+        case "Marketing Project Manager":
+          return {
+            startDate: "2017-06-01",
+            endDate: "2019-07-01",
+          };
+      }
+    }
   };
 
   return (
@@ -134,51 +161,12 @@ const About = () => {
               </div>
             </span>
           </div>
-          <div id="school" className="box small jetbrains">
-            <span className="icon">
-              <Image
-                src={universityIcon}
-                height={100}
-                width={100}
-                alt="university-icon"
-                className="icon"
-              />
-            </span>
-            <span className="flex-center">
-              <div className="indent" style={{ marginLeft: "2rem" }}>
-                <p>
-                  {textColor("const", "blue")}
-                  {" BS = "}
-                  {textColor("Business Administration", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" specialization = "}
-                  {textColor("Marketing", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" college = "}
-                  {textColor("'Central Washington University'", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" graduationYear = "}
-                  {textColor("2016", "yellow")}
-                  {";"}
-                </p>
-              </div>
-            </span>
-          </div>
         </div>
         <div className="row">
           <div id="school" className="box small jetbrains">
             <span className="icon">
               <Image
-                src={universityIcon}
+                src={bonzIcon}
                 height={100}
                 width={100}
                 alt="university-icon"
@@ -188,120 +176,90 @@ const About = () => {
             <span className="flex-center">
               <div className="indent" style={{ marginLeft: "2rem" }}>
                 <p>
+                  {textColor("export ", "purple")}
                   {textColor("const", "blue")}
-                  {" BS = "}
-                  {textColor("Business Administration", "yellow")}
-                  {";"}
+                  {" workedAt = (company, jobTitle, startDate, endDate) => {"}
                 </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" specialization = "}
-                  {textColor("Marketing", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" college = "}
-                  {textColor("'Central Washington University'", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" graduationYear = "}
-                  {textColor("2016", "yellow")}
-                  {";"}
-                </p>
-              </div>
-            </span>
-          </div>
-          <div id="school" className="box small jetbrains">
-            <span className="icon">
-              <Image
-                src={universityIcon}
-                height={100}
-                width={100}
-                alt="university-icon"
-                className="icon"
-              />
-            </span>
-            <span className="flex-center">
-              <div className="indent" style={{ marginLeft: "2rem" }}>
-                <p>
-                  {textColor("const", "blue")}
-                  {" BS = "}
-                  {textColor("Business Administration", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" specialization = "}
-                  {textColor("Marketing", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" college = "}
-                  {textColor("'Central Washington University'", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" graduationYear = "}
-                  {textColor("2016", "yellow")}
-                  {";"}
-                </p>
-              </div>
-              <div className="indent" style={{ marginLeft: "2rem" }}>
-                <p>
-                  {textColor("const", "blue")}
-                  {" BS = "}
-                  {textColor("Business Administration", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" specialization = "}
-                  {textColor("Marketing", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" college = "}
-                  {textColor("'Central Washington University'", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" graduationYear = "}
-                  {textColor("2016", "yellow")}
-                  {";"}
-                </p>
-              </div>
-              <div className="indent" style={{ marginLeft: "2rem" }}>
-                <p>
-                  {textColor("const", "blue")}
-                  {" BS = "}
-                  {textColor("Business Administration", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" specialization = "}
-                  {textColor("Marketing", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" college = "}
-                  {textColor("'Central Washington University'", "yellow")}
-                  {";"}
-                </p>
-                <p>
-                  {textColor("const", "blue")}
-                  {" graduationYear = "}
-                  {textColor("2016", "yellow")}
-                  {";"}
-                </p>
+                <Indent>
+                  <p>
+                    {textColor("if", "blue")}
+                    {"(companyName === "}
+                    {textColor(`"Bonanza"`, "yellow")}
+                    {") {"}
+                  </p>
+                  <Indent>
+                    <p>
+                      {textColor("switch", "blue")}
+                      {" (jobTitle) "}
+                      {"{"}
+                    </p>
+                    <Indent>
+                      <p>
+                        {textColor("case", "blue")}
+                        {` "Data Analyst"`}
+                        {":"}
+                      </p>
+                      <Indent>
+                        <p>
+                          {textColor("return ", "blue")}
+                          {"{"}
+                        </p>
+                        <Indent>
+                          <p>
+                            {`startDate: `}
+                            {textColor(`"2019-07-01"`, "yellow")}
+                            {`,`}
+                          </p>
+                          <p>
+                            {`endDate: `}
+                            {textColor(`null`, "purple")}
+                            {`,`}
+                          </p>
+                          <p>{`duties: [`}</p>
+                          <Indent>
+                            <p>
+                              {textColor(
+                                `"Author MySQL queries to coordinate acquisition of data"`,
+                                "yellow"
+                              )}
+                              {`,`}
+                            </p>
+                            <p>
+                              {textColor(
+                                `"Use Excel/Python to clean, visualize, and analyze large datasets"`,
+                                "yellow"
+                              )}
+                              {`,`}
+                            </p>
+                            <p>
+                              {textColor(
+                                `"Use Python to create visualizations and conduct analysis"`,
+                                "yellow"
+                              )}
+                              {`,`}
+                            </p>
+                            <p>
+                              {textColor(
+                                `"Identify patterns, use insights to educate and advise stakeholders "`,
+                                "yellow"
+                              )}
+                              {`,`}
+                            </p>
+                            <p>
+                              {textColor(
+                                `"Create reports to present data, identify issues, and develop new processes"`,
+                                "yellow"
+                              )}
+                              {`,`}
+                            </p>
+                          </Indent>
+                        </Indent>
+                        {"],"}
+                      </Indent>
+                      {"};"}
+                    </Indent>
+                  </Indent>
+                </Indent>
               </div>
             </span>
           </div>

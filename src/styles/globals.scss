@@ -100,12 +100,13 @@ section {
     gap: 2rem;
 
     .columns {
-      display: grid;
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(500px, 1fr)
-      ); /* see notes below */
-      grid-gap: 1em;
+      // display: grid;
+      // grid-template-columns: repeat(
+      //   auto-fit,
+      //   minmax(500px, 1fr)
+      // ); /* see notes below */
+      // grid-gap: 1em;
+
       width: 100%;
 
       .row {
