@@ -98,6 +98,22 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(500px, 1fr)
+      ); /* see notes below */
+      grid-gap: 1em;
+      width: 100%;
+
+      .row {
+        flex: 1 1 50%;
+        flex-wrap: wrap;
+        min-width: 500px;
+      }
+    }
   }
 }
 
@@ -176,16 +192,17 @@ section {
 
   &.row {
     display: flex;
-
+    flex: 1 1 50%;
     flex-wrap: wrap;
     gap: 1rem;
+    min-width: 500px;
   }
 
   &.small {
-    max-width: 45%;
     padding: 1rem !important;
     display: flex;
     gap: 2rem;
+    margin-top: 1rem;
   }
 }
 
