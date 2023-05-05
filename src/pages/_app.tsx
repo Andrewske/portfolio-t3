@@ -4,11 +4,16 @@ import { SessionProvider } from "next-auth/react";
 
 import { trpc } from "../utils/trpc";
 
-import { Roboto } from "next/font/google";
+import { Roboto, JetBrains_Mono } from "next/font/google";
 
 import "../styles/globals.scss";
 
 const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400"],
 });
@@ -21,7 +26,11 @@ const MyApp: AppType<{ session: Session }> = ({
     <SessionProvider session={session}>
       <style jsx global>{`
         html {
-          font-family: ${roboto.style.fontFamily};
+          font-family: ${jetbrains.style.fontFamily};
+        }
+
+        .jetbrains {
+          font-family: ${jetbrains.style.fontFamily};
         }
       `}</style>
       <Component {...pageProps} className={roboto.className} />
