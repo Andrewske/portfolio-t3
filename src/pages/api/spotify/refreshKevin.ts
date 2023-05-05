@@ -8,8 +8,10 @@ const refreshKevinHandler = async (
 ) => {
   const ctx = await createContext({ req, res });
   const caller = appRouter.createCaller(ctx);
-
+  return caller;
   // try {
   //     const accessToken = await caller.spotify.updateKevin
   // }
 };
+
+export default refreshKevinHandler;
