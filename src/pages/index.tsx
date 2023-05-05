@@ -39,7 +39,7 @@ const Home: NextPage = () => {
         <section id="banner" className="banner container">
           <Link href="#about" onClick={handleScroll}>
             <h1 className="hover-color">
-              Hi I'm <br />
+              Hi I&apos;m <br />
               Kevin Andrews
             </h1>
           </Link>

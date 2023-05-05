@@ -2,7 +2,7 @@ import type { PropsWithChildren } from "react";
 
 type SectionProps = {
   imageUrl: string;
-  dateLeft: boolean;
+  imageLeft: boolean;
 };
 
 const Section = ({
@@ -14,7 +14,7 @@ const Section = ({
     <section className="timeline-section">
       <div className="left">
         {imageLeft ? (
-          <h3 className={"date"}>{image}</h3>
+          <h3 className={"date"}>{imageUrl}</h3>
         ) : (
           <div>{children}</div>
         )}
@@ -22,7 +22,7 @@ const Section = ({
 
       <div className="right">
         {!imageLeft ? (
-          <h3 className={"date"}>{image}</h3>
+          <h3 className={"date"}>{imageUrl}</h3>
         ) : (
           <div>{children}</div>
         )}
