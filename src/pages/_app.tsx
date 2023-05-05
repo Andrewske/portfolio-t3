@@ -4,7 +4,7 @@ import { SessionProvider } from "next-auth/react";
 
 import { trpc } from "../utils/trpc";
 
-import { Roboto } from "@next/font/google";
+import { Roboto } from "next/font/google";
 
 import "../styles/globals.scss";
 
