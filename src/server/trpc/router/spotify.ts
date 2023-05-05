@@ -14,6 +14,11 @@ type ArtistItemType = {
   id: string;
 };
 
+type InputType = {
+  limit: number;
+  offset: number;
+};
+
 const pickImage = (images: Array<ImageType>) => {
   const minHeight = 100;
 

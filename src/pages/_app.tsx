@@ -13,10 +13,10 @@ const roboto = Roboto({
   weight: ["400"],
 });
 
-const MyApp: AppType<{ session: Session | null }> = ({
+const MyApp = ({
   Component,
   pageProps: { session, ...pageProps },
-}) => {
+}: AppType<{ session: Session | null }>) => {
   return (
     <SessionProvider session={session}>
       <style jsx global>{`
