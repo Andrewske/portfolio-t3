@@ -4,7 +4,11 @@ import universityIcon from "/public/images/icons8-university-50.png";
 
 import Bonanza from "./Bonanza";
 
+import { bonanzaExperience } from "./bonanzaExperience";
+
 import Indent from "../Indent";
+
+import TextAsCode from "../TextAsCode";
 
 interface TextColorType {
   text: "string";
@@ -165,7 +169,11 @@ const About = () => {
             </span>
           </div>
         </div>
-        <Bonanza />
+      </div>
+      <div className="columns">
+        <div className="row">
+          <TextAsCode data={bonanzaExperience} />
+        </div>
       </div>
     </section>
   );

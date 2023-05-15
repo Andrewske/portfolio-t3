@@ -1,0 +1,79 @@
+@import "../../styles/vars";
+
+.wrapper {
+  max-width: 1200px;
+  height: max-content;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.75);
+  color: $white;
+  border: none;
+  border-radius: 0.5rem;
+  white-space: pre-line;
+  box-shadow: 0 0 0 1px hsla(0, 0%, 100%, 0.3), 0 0 0 1.5px rgba(0, 0, 0, 0.8),
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.48),
+    0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.declaration {
+  color: $purple !important;
+}
+
+.keyword {
+  color: $blue !important;
+}
+
+.comment {
+  color: $green !important;
+}
+
+.text {
+  color: $yellow !important;
+}
+
+.indent-0 {
+  text-indent: 0rem;
+  margin-left: 0rem;
+}
+.indent-1 {
+  text-indent: -0.5rem;
+  margin-left: 1.5rem;
+}
+.indent-2 {
+  text-indent: -1rem;
+  margin-left: 3rem;
+}
+.indent-3 {
+  text-indent: -1.5rem;
+  margin-left: 4.5rem;
+}
+.indent-4 {
+  text-indent: -2rem;
+  margin-left: 6rem;
+}
+.indent-5 {
+  text-indent: -2.5rem;
+  margin-left: 7.5rem;
+}
+.indent-6 {
+  text-indent: -3rem;
+  margin-left: 9rem;
+}

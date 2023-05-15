@@ -28,10 +28,6 @@ const MyApp: AppType<{ session: Session }> = ({
         html {
           font-family: ${jetbrains.style.fontFamily};
         }
-
-        .jetbrains {
-          font-family: ${jetbrains.style.fontFamily};
-        }
       `}</style>
       <Component {...pageProps} className={roboto.className} />
     </SessionProvider>
