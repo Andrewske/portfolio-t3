@@ -2,48 +2,15 @@ import React from "react";
 import Image from "next/image";
 import universityIcon from "/public/images/icons8-university-50.png";
 
-import Bonanza from "./Bonanza";
-
 import { bonanzaExperience } from "./bonanzaExperience";
 
-import Indent from "../Indent";
-
 import TextAsCode from "../TextAsCode";
-
-interface TextColorType {
-  text: "string";
-  color: "string";
-}
 
 const iconSize = 75;
 
 const About = () => {
   const textColor = (text: string, color: string) => {
     return <span className={`${color}`}>{text}</span>;
-  };
-
-  const workedAt = (company: string, jobTitle: string) => {
-    if (company === "Bonanza") {
-      switch (jobTitle) {
-        case "Data Analyst":
-          return {
-            startDate: "2019-07-01",
-            endDate: null,
-            duties: [
-              "Author MySQL queries to coordinate acquisition of data",
-              "Use Excel/Python to clean, visualize, and analyze large datasets",
-              "Use Python to create visualizations and conduct analysis",
-              "Identify patterns, use insights to educate and advise stakeholders ",
-              "Create reports to present data, identify issues, and develop new processes",
-            ],
-          };
-        case "Marketing Project Manager":
-          return {
-            startDate: "2017-06-01",
-            endDate: "2019-07-01",
-          };
-      }
-    }
   };
 
   return (
